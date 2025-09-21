@@ -23,7 +23,7 @@ const RightSide=()=>{
    <form onSubmit={handleSubmit(onSubmit)} >
      <label htmlFor="name" style={{fontSize:"1.5vw"}}>cardholder name</label>
      <Controller control={control} rules={{required:"CardHolder name is required", pattern: {
-            value: /^[a-zA-Z]{3,}$/, 
+            value: /^[a-zA-Z]{3,}(?:\s+[a-zA-Z]+)*$/gi, 
             message: 'Please enter a valid cardholder name',
           },}} render={({field,fieldState})=>(  <TextField value={field.value} onChange={(e)=>{
             content.setDetails({type:'ENTER_NAME',value:e.target.value});
